@@ -1,0 +1,44 @@
+<schemalist gettext-domain="gnome-shell-extensions-hijri-calendar">
+  <schema id="org.gnome.shell.extensions.hijri-calendar" path="/org/gnome/shell/extensions/hijri-calendar/">
+    <key name="hijri-display" type="b">
+      <default>true</default>
+      <summary>Display Hijri date below the calendar</summary>
+      <description>Set to true to display Hijri date.</description>
+    </key>
+    <key name="gregorian-display" type="b">
+      <default>true</default>
+      <summary>Display Gregorian date below the calendar</summary>
+      <description>Set to true to display Gregorian date.</description>
+    </key>
+    <key name="hijri-display-format" type="s">
+      <default>'%D / %M / %Y'</default>
+      <summary>Hijri date format</summary>
+      <description>Hijri date format</description>
+    </key>
+    <key name="gregorian-display-format" type="s">
+      <default>'%D / %M / %Y'</default>
+      <summary>Gregorian date format</summary>
+      <description>Gregorian date format</description>
+    </key>
+    <key name="event-world" type="b">
+      <default>true</default>
+      <summary>Display official international events</summary>
+      <description>Display official international events.</description>
+    </key>
+    <key name="widget-format" type="s">
+      <default>'%d'</default>
+      <summary>Widget date format</summary>
+      <description>Widget date format</description>
+    </key>
+    <key name="custom-color" type="b">
+      <default>false</default>
+      <summary>Use custom color</summary>
+      <description>Use custom color.</description>
+    </key>
+    <key name="color" type="s">
+      <default>'#000000'</default>
+      <summary>Custom color</summary>
+      <description>Custom color.</description>
+    </key>
+  </schema>
+</schemalist>
