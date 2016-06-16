@@ -1,9 +1,9 @@
-/* 
+/*
  * Based on a code from http://www.tabibmuda.com/page.php?8
  */
 
 let HijriDate = {
-    h_month_names: ['محرم', 'صفر', 'ربیع‌الاول', 'ربیع‌الثانی', 'جمادی‌الاول', 'جمادی‌الثانی', 'رجب', 'شعبان', 'رمضان', 'شوال', 'ذیقعده', 'ذیحجه']
+    h_month_names: ['محرم', 'صفر', 'ربیع‌الأول', 'ربیع‌الثانی', 'جمادی‌الأولى', 'جمادی‌الثانیة', 'رجب', 'شعبان', 'رمضان', 'شوال', 'ذو القعدة', 'ذو الحجة']
 };
 
 HijriDate.intPart = function (floatNum) {
@@ -17,7 +17,7 @@ HijriDate.toHijri = function (y, m, d) {
     y = parseInt(y);
     m = parseInt(m);
     d = parseInt(d);
-    
+
     let jd, l, n, j;
     if ((y > 1582) || ((y == 1582) && (m > 10)) || ((y == 1582) && (m == 10) && (d > 14))) {
         jd = HijriDate.intPart((1461 * (y + 4800 + HijriDate.intPart((m - 14) / 12))) / 4) + HijriDate.intPart((367 * (m - 2 - 12 * (HijriDate.intPart((m - 14) / 12)))) / 12) - HijriDate.intPart((3 * (HijriDate.intPart((y + 4900 + HijriDate.intPart((m - 14) / 12)     ) / 100)    )   ) / 4) + d - 32075;
@@ -40,7 +40,7 @@ HijriDate.fromHijri = function (y, m, d) {
     y = parseInt(y);
     m = parseInt(m);
     d = parseInt(d);
-    
+
     let jd, l, n, j, i, k;
     jd = HijriDate.intPart((11 * y + 3) / 30) + 354 * y + 30 * m - HijriDate.intPart((m - 1) / 2) + d + 1948440 - 385;
     if (jd > 2299160) {
