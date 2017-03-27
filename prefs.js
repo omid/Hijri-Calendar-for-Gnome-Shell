@@ -68,13 +68,13 @@ const App = new Lang.Class({
             Schema.set_string('gregorian-display-format', format.text);
         });
 
-        let item = new Gtk.CheckButton({label: _('Hijri')});
+        item = new Gtk.CheckButton({label: _('Hijri')});
         this.vbox1.add(item);
         Schema.bind('hijri-display', item, 'active', Gio.SettingsBindFlags.DEFAULT);
 
-        let label = new Gtk.Label({label: "     Format: "});
-        let format = new Gtk.Entry();
-        let hbox = new Gtk.HBox();
+        label = new Gtk.Label({label: "     Format: "});
+        format = new Gtk.Entry();
+        hbox = new Gtk.HBox();
         hbox.add(label);
         hbox.add(format);
         this.vbox1.add(hbox);
@@ -95,18 +95,18 @@ const App = new Lang.Class({
             use_markup: true
         }));
 
-        let item = new Gtk.CheckButton({label: _('International')});
+        item = new Gtk.CheckButton({label: _('International')});
         this.vbox2.add(item);
         Schema.bind('event-world', item, 'active', Gio.SettingsBindFlags.DEFAULT);
 
         // COLOR
         this.vbox3.add(new Gtk.Label({label: _('Widget Properties:')}));
 
-        let item = new Gtk.CheckButton({label: _('Use custom color')});
+        item = new Gtk.CheckButton({label: _('Use custom color')});
         this.vbox3.add(item);
         Schema.bind('custom-color', item, 'active', Gio.SettingsBindFlags.DEFAULT);
 
-        let label = new Gtk.Label({label: "Color: "});
+        label = new Gtk.Label({label: "Color: "});
         let color = new Gtk.ColorButton();
         let _actor = new Gtk.HBox();
         _actor.add(label);
@@ -120,9 +120,9 @@ const App = new Lang.Class({
             Schema.set_string('color', getHexadecimalByColor(color.get_color()));
         });
 
-        let label = new Gtk.Label({label: "Format: "});
-        let format = new Gtk.Entry();
-        let hbox = new Gtk.HBox();
+        label = new Gtk.Label({label: "Format: "});
+        format = new Gtk.Entry();
+        hbox = new Gtk.HBox();
         hbox.add(label);
         hbox.add(format);
         this.vbox3.add(hbox);
@@ -131,7 +131,7 @@ const App = new Lang.Class({
             Schema.set_string('widget-format', format.text);
         });
 
-        let comment = new Gtk.Label({
+        comment = new Gtk.Label({
             label: _('<span size="x-small">Formatting possible values:\n%Y: 4-digit year\n%y: 2-digit year\n%M: 2-digit month\n%m: 1 or 2-digit month\n%MM: Full month name\n%mm: Abbreviated month name\n%D: 2-digit day\n%d: 1 or 2-digit day</span>'),
             use_markup: true
         });
