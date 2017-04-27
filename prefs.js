@@ -106,19 +106,19 @@ const App = new Lang.Class({
         this.vbox3.add(item);
         Schema.bind('custom-color', item, 'active', Gio.SettingsBindFlags.DEFAULT);
 
-        label = new Gtk.Label({label: "Color: "});
         let color = new Gtk.ColorButton();
-        let _actor = new Gtk.HBox();
-        _actor.add(label);
-        _actor.add(color);
+        this.vbox3.add(color);
 
         let _color = getColorByHexadecimal(Schema.get_string('color'));
         color.set_color(_color);
 
-        this.vbox3.add(_actor);
         color.connect('color-set', function (color) {
             Schema.set_string('color', getHexadecimalByColor(color.get_color()));
         });
+
+        item = new Gtk.CheckButton({label: _('Startup Notification')});
+        this.vbox3.add(item);
+        Schema.bind('startup-notification', item, 'active', Gio.SettingsBindFlags.DEFAULT);
 
         label = new Gtk.Label({label: "Format: "});
         format = new Gtk.Entry();

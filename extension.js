@@ -371,7 +371,7 @@ function enable()
 {
     _indicator = new HijriCalendar;
     Main.panel.addToStatusArea('hijri_calendar', _indicator);
-    _indicator._updateDate();
+    _indicator._updateDate(!Schema.get_boolean('startup-notification'));
     _timer = MainLoop.timeout_add(3000, Lang.bind(_indicator, _indicator._updateDate));
 }
 
