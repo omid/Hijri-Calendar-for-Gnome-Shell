@@ -15,9 +15,9 @@ const Events = extension.imports.Events;
 const Schema = convenience.getSettings(extension, 'hijri-calendar');
 
 function _sameDay(dateA, dateB) {
-    return (dateA.year == dateB.year &&
-    dateA.month == dateB.month &&
-    dateA.day == dateB.day);
+    return (dateA.year === dateB.year &&
+    dateA.month === dateB.month &&
+    dateA.day === dateB.day);
 }
 
 function Calendar() {
@@ -84,7 +84,7 @@ Calendar.prototype = {
     },
 
     _buildHeader: function () {
-        this._rtl = (Clutter.get_default_text_direction() == Clutter.TextDirection.RTL);
+        this._rtl = (Clutter.get_default_text_direction() === Clutter.TextDirection.RTL);
         if (this._rtl) {
             this._colPosition = 0;
         } else {
@@ -182,7 +182,7 @@ Calendar.prototype = {
     _onPrevMonthButtonClicked: function () {
         let newDate = this._selectedDate;
         let oldMonth = newDate.month;
-        if (oldMonth == 1) {
+        if (oldMonth === 1) {
             newDate.month = 12;
             newDate.year--;
         }
@@ -196,7 +196,7 @@ Calendar.prototype = {
     _onNextMonthButtonClicked: function () {
         let newDate = this._selectedDate;
         let oldMonth = newDate.month;
-        if (oldMonth == 12) {
+        if (oldMonth === 12) {
             newDate.month = 1;
             newDate.year++;
         }
@@ -225,7 +225,7 @@ Calendar.prototype = {
         let now = new Date();
         now = HijriDate.HijriDate.toHijri(now.getFullYear(), now.getMonth() + 1, now.getDate());
 
-        if (this._selectedDate.year == now.year) {
+        if (this._selectedDate.year === now.year) {
             this._monthLabel.text = HijriDate.HijriDate.h_month_names[this._selectedDate.month - 1];
         } else {
             this._monthLabel.text = HijriDate.HijriDate.h_month_names[this._selectedDate.month - 1] + ' ' + str.format(this._selectedDate.year);
@@ -260,19 +260,19 @@ Calendar.prototype = {
 
             let styleClass = ' calendar-day-base calendar-day hcalendar-day ';
             if (events[1])
-                styleClass += ' hcalendar-nonwork-day ';
+                styleClass += ' calendar-nonwork-day hcalendar-nonwork-day ';
             else
-                styleClass += ' hcalendar-work-day ';
+                styleClass += ' calendar-work-day hcalendar-work-day ';
 
-            if (row == 2)
+            if (row === 2)
                 styleClass = ' calendar-day-top ' + styleClass;
-            if (iter.getDay() == this._weekStart - 1)
+            if (iter.getDay() === this._weekStart - 1)
                 styleClass = ' calendar-day-left ' + styleClass;
 
             if (_sameDay(now, p_iter)) {
                 styleClass += ' calendar-today ';
-            } else if (p_iter.month != this._selectedDate.month) {
-                styleClass += ' hcalendar-other-month-day ';
+            } else if (p_iter.month !== this._selectedDate.month) {
+                styleClass += ' calendar-other-month-day hcalendar-other-month-day ';
             }
 
             if (_sameDay(this._selectedDate, p_iter)) {
@@ -280,7 +280,7 @@ Calendar.prototype = {
             }
 
             if (events[0])
-                styleClass += ' calendar-day-with-events hcalendar-day-with-events ';
+                styleClass += ' hcalendar-day-with-events ';
                 
             button.style_class = styleClass;
 
@@ -292,7 +292,7 @@ Calendar.prototype = {
 
             iter.setDate(iter.getDate() + 1);
 
-            if (iter.getDay() == this._weekStart) {
+            if (iter.getDay() === this._weekStart) {
                 // We stop on the first "first day of the week" after the month we are displaying
                 if (p_iter.month > this._selectedDate.month || p_iter.year > this._selectedDate.year) {
                     break;
@@ -309,7 +309,7 @@ Calendar.prototype = {
         let h_selectedDate = HijriDate.HijriDate.toHijri(g_selectedDate.getFullYear(), g_selectedDate.getMonth() + 1, g_selectedDate.getDate());
 
         // add gregorian date
-        if (Schema.get_boolean("gregorian-display")) {
+        if (Schema.get_boolean('gregorian-display')) {
             let _datesBox_g = new St.BoxLayout();
             this.actor.layout_manager.pack(_datesBox_g, 0, ++row);
             this.actor.layout_manager.set_span(_datesBox_g, 7, 1);
@@ -363,7 +363,7 @@ Calendar.prototype = {
             this.actor.layout_manager.set_span(_eventBox, 7, 1);
             let bottomLabel = new St.Label({
                 text: str.format(events[0]),
-                style_class: 'calendar-day hcalendar-event-label'
+                style_class: 'hcalendar-event-label'
             });
 
             /* Wrap truncate some texts!

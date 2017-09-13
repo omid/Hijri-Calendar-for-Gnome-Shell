@@ -4,9 +4,8 @@
   "name": "Hijri Calendar",
   "original-authors": "Omid Mottaghi Rad",
   "shell-version": [
-    "3.20",
-    "3.22",
-    "3.24"
+    "3.24",
+    "3.26"
   ],
   "url": "https://github.com/omid/Hijri-Calendar-for-Gnome-Shell",
   "uuid": "HijriCalendar@oxygenws.com",

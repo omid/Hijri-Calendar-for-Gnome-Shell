@@ -47,7 +47,7 @@ const HijriCalendar = new Lang.Class({
 
         let that = this;
         this.schema_color_change_signal = Schema.connect('changed::color', Lang.bind(
-            that, function (schema, key) {
+            that, function () {
                 if (Schema.get_boolean('custom-color')) {
                     that.label.set_style('color: ' + Schema.get_string('color'));
                 }
@@ -55,7 +55,7 @@ const HijriCalendar = new Lang.Class({
         ));
         
         this.schema_custom_color_signal = Schema.connect('changed::custom-color', Lang.bind(
-            that, function (schema, key) {
+            that, function () {
                 if (Schema.get_boolean('custom-color')) {
                     that.label.set_style('color: ' + Schema.get_string('color'));
                 } else {
@@ -65,7 +65,7 @@ const HijriCalendar = new Lang.Class({
         ));
 
         this.schema_widget_format_signal = Schema.connect('changed::widget-format', Lang.bind(
-            that, function (schema, key) {
+            that, function () {
                 this._updateDate(true, true)
             }
         ));
@@ -109,7 +109,7 @@ const HijriCalendar = new Lang.Class({
             can_focus: true
         });
         preferencesIcon.connect('clicked', function () {
-            if (_gsmPrefs.get_state() == _gsmPrefs.SHELL_APP_STATE_RUNNING) {
+            if (_gsmPrefs.get_state() === _gsmPrefs.SHELL_APP_STATE_RUNNING) {
                 _gsmPrefs.activate();
             } else {
                 launch_extension_prefs(extension.metadata.uuid);
@@ -136,7 +136,7 @@ const HijriCalendar = new Lang.Class({
         _date = HijriDate.HijriDate.toHijri(_date.getFullYear(), _date.getMonth() + 1, _date.getDate());
 
         // if today is "today" just return, don't change anything!
-        if (!force && this._today == _date.yearDays) {
+        if (!force && this._today === _date.yearDays) {
             return true;
         }
 
@@ -147,7 +147,7 @@ const HijriCalendar = new Lang.Class({
         // get events of today
         let ev = new Events.Events();
         let events = ev.getEvents(new Date());
-        events[0] = events[0] != '' ? "\n" + events[0] : '';
+        events[0] = events[0] !== '' ? "\n" + events[0] : '';
 
         // is holiday?
         if (events[1]) {
@@ -269,7 +269,7 @@ const HijriCalendar = new Lang.Class({
         let day = this.converterDay.get_text();
 
         // check if data is numerical and not empty
-        if (isNaN(day) || isNaN(month) || isNaN(year) || !day || !month || !year || year.length != 4) {
+        if (isNaN(day) || isNaN(month) || isNaN(year) || !day || !month || !year || year.length !== 4) {
             return;
         }
 
@@ -328,7 +328,7 @@ const HijriCalendar = new Lang.Class({
     _toggleConverter: function(button)
     {
         // skip because it is already active
-        if(this._activeConverter == button.TypeID)
+        if(this._activeConverter === button.TypeID)
         {
             return;
         }

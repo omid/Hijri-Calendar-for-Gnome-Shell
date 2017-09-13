@@ -6,8 +6,6 @@ const HijriDate = extension.imports.HijriDate;
 
 const world = extension.imports.events.world;
 
-const str = extension.imports.strFunctions;
-
 const Schema = convenience.getSettings(extension, 'hijri-calendar');
 
 function Events() {
@@ -29,7 +27,7 @@ Events.prototype = {
         this._today = [];
 
         // if it is friday
-        if (today.getDay() == 5) this._isHoliday = true;
+        if (today.getDay() === 5) this._isHoliday = true;
 
         // store gregorian date of today
         this._today[0] = [today.getFullYear(), today.getMonth() + 1, today.getDate()];
