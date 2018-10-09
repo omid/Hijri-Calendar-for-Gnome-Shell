@@ -383,9 +383,6 @@ function disable()
 
     _indicator.destroy();
     MainLoop.source_remove(_timer);
-    Schema.run_dispose();
-    Calendar.Schema.run_dispose();
-    Events.Schema.run_dispose();
 }
 
 function launch_extension_prefs(uuid)
