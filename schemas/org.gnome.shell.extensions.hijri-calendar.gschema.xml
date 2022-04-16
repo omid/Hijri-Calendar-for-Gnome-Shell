@@ -37,8 +37,8 @@
     </key>
     <key name="arab-numerals" type="b">
       <default>false</default>
-      <summary>Use custom color</summary>
-      <description>Use custom color.</description>
+      <summary>Display Arab numerals</summary>
+      <description>Display Arab numerals</description>
     </key>
     <key name="custom-color" type="b">
       <default>false</default>
