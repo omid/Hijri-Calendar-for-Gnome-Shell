@@ -335,7 +335,7 @@ Calendar.prototype = {
         // add hijri date
         if (Schema.get_boolean("hijri-display")) {
             let _datesBox_h = new St.BoxLayout();
-            this.actor.layout_manager.attach(_datesBox_p, 0, ++row, 7, 1);
+            this.actor.layout_manager.attach(_datesBox_h, 0, ++row, 7, 1);
 
             let button = new St.Button({
                 label: str.format(
