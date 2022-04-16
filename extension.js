@@ -69,6 +69,12 @@ const HijriCalendar = new Lang.Class({
                 this._updateDate(true, true)
             }
         ));
+
+        this.schema_widget_format_signal = Schema.connect('changed::arab-numerals', Lang.bind(
+            that, function () {
+                this._updateDate(true, true)
+            }
+        ));
         ///////////////////////////////
 
         this._today = '';
