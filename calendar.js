@@ -25,7 +25,7 @@ function Calendar() {
 }
 
 Calendar.prototype = {
-    weekdayAbbr: ['س', 'ا', 'ا', 'ث', 'ا', 'خ', 'ج'],
+    weekdayAbbr: ['س', 'ح', 'ن', 'ث', 'ر', 'خ', 'ج'],
     _weekStart: 6,
 
     _init: function () {
