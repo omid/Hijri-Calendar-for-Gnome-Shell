@@ -101,6 +101,10 @@ const App = new Lang.Class({
         // COLOR
         this.vbox3.add(new Gtk.Label({label: _('Widget Properties:')}));
 
+        item = new Gtk.CheckButton({label: _('Display Arab numerals')});
+        this.vbox3.add(item);
+        Schema.bind('arab-numerals', item, 'active', Gio.SettingsBindFlags.DEFAULT);
+
         item = new Gtk.CheckButton({label: _('Use custom color')});
         this.vbox3.add(item);
         Schema.bind('custom-color', item, 'active', Gio.SettingsBindFlags.DEFAULT);

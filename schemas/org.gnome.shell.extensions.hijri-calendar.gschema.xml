@@ -35,6 +35,11 @@
       <summary>Startup Notification</summary>
       <description>Show notification on start up</description>
     </key>
+    <key name="arab-numerals" type="b">
+      <default>false</default>
+      <summary>Display Arab numerals</summary>
+      <description>Display Arab numerals</description>
+    </key>
     <key name="custom-color" type="b">
       <default>false</default>
       <summary>Use custom color</summary>
